@@ -1,0 +1,32 @@
+{
+  "name": "js-cpp-python",
+  "version": "1.0.0",
+  "description": "C++, Python을 JS에서 호출하기(practice)",
+  "main": "app.js",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nan": "^2.14.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm run watch & nodemon ./app/bin/www.js",
+    "build": "browserify ./app/app.js -o ./app/scr/public/js/home/index.js",
+    "watch": "watchify ./app/app.js -o ./app/scr/public/js/home/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "gypfile": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tempJ/js-cpp-python.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tempJ/js-cpp-python/issues"
+  },
+  "homepage": "https://github.com/tempJ/js-cpp-python#readme"
+}
