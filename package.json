@@ -13,9 +13,11 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start2": "nodemon ./app/bin/www.js",
     "start": "npm run watch & nodemon ./app/bin/www.js",
-    "build": "browserify ./app/app.js -o ./app/scr/public/js/home/index.js",
-    "watch": "watchify ./app/app.js -o ./app/scr/public/js/home/index.js",
+    "node": "nodemon ./app/bin/www.js",
+    "build": "browserify ./app/bin/www.js -o bundle.js",
+    "watch": "watchify ./app/bin/www.js -o bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "gypfile": true,
