@@ -1,5 +1,6 @@
 "use strict";
 
+const Hello = require("../../models/Hello")
 const logger = require("../../config/logger");
 
 const output = {
@@ -9,27 +10,30 @@ const output = {
     },
 };
 
-// const process = {
-//     home: async (req, res) =>{
-//         const url = {
-//             method: "POST",
-//             path: "/chart",
-//             status: response.err ? 400 : 200,
-//         };
+const process = {
+    home: async (req, res) =>{
+        const hello = new Hello();
+        const response = await hello.helloPy();
 
-//         log(response, url);
-//         return res.status(url.status).json(response);
-//     },
-// };
+        const url = {
+            method: "POST",
+            path: "/",
+            status: response.err ? 400 : 200,
+        };
+
+        log(response, url);
+        return res.status(url.status).json(response);
+    },
+};
 
 module.exports = {
     output,
-    // process,
+    process,
 };
 
-// const log = (response, url) =>{
-//     if(response.err)
-//         logger.error(`${url.method} ${url.path} ${url.status} res: ${response.success} ${response.err}`);
-//     else
-//         logger.info(`${url.method} ${url.path} ${url.status} res: ${response.success} ${response.msg || ""}`);
-// }
+const log = (response, url) =>{
+    if(response.err)
+        logger.error(`${url.method} ${url.path} ${url.status} res: ${response.success} ${response.err}`);
+    else
+        logger.info(`${url.method} ${url.path} ${url.status} res: ${response.success} ${response.msg || ""}`);
+}

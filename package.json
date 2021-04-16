@@ -4,19 +4,26 @@
   "description": "C++, Python을 JS에서 호출하기(practice)",
   "main": "app.js",
   "dependencies": {
+    "await-spawn": "^4.0.1",
     "bindings": "^1.5.0",
+    "child_process": "^1.0.2",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "nan": "^2.14.2",
+    "python-shell": "^3.0.0",
     "winston": "^3.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15"
+  },
   "scripts": {
-    "start2": "nodemon ./app/bin/www.js",
-    "start": "npm run watch & nodemon ./app/bin/www.js",
+    "start": "nodemon ./app/bin/www.js",
+    "browse": "browserify ./app/src/public/js/home/home.js -o ./app/src/public/js/home/bundle.js",
+    "build": "babel ./app/src/public/js/home/index.js -d ./app/src/public/js/home/",
     "node": "nodemon ./app/bin/www.js",
-    "build": "browserify ./app/bin/www.js -o bundle.js",
     "watch": "watchify ./app/bin/www.js -o bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
