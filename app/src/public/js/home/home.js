@@ -13,7 +13,7 @@ function home(){
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
-        // body: JSON.stringify(req),
+        body: JSON.stringify(),
     })
     .then((res) => res.json())
     .then((res) => {
@@ -27,7 +27,7 @@ function home(){
             console.log(res.msg);
         }
     })
-    .then(console.error);
+    .catch(console.error);
     
     console.log(pyStr);
 }

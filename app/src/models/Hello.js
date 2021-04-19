@@ -44,8 +44,20 @@ class Hello{
         // const { spawn } = require("child_process");
 
         try{
-            let str = "test"
-            str = await HelloFile.helloPy();
+            // let str = "test"
+            // str = await HelloFile.helloPy();
+            return new Promise((resolve, reject) => {
+                // const str = await HelloFile.helloPy();
+                PythonShell.run('hello.py', options, (err, result) => {
+                    if(err) {
+                        console.log(err);
+                        reject({ success: false, err });
+                    };
+                    console.log(`result: ${result}`);
+                    resolve({ success: true, str: result, msg: "load python script" });
+                });
+            })
+            // const str = await HelloFile.helloPy();
             // await this.helloPyPrivate(str);
             // const r = await PythonShell.run('hello.py', options, (err, result) => {
             //         if(err) console.log(err);
@@ -54,8 +66,8 @@ class Hello{
             //         console.log(`promise str: ${str}`);
             // });
             // console.log(r.stdout);
-            console.log(`str: ${str}`);
-            return { success: true, str, msg: "load python script" };
+            // console.log(`str: ${str}`);
+            // return { success: true, str, msg: "load python script" };
             // return new Promise((resolve, reject) => {
             //     PythonShell.run('hello.py', options, (result, err) => {
             //         if(err) { reject({ success: false, err }); }

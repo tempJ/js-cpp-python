@@ -3,6 +3,8 @@
 
 # if __name__ == '__main__':
 #     getHello()
+import time
+time.sleep(3)
 print("Hello World!")
 
 # import sys
